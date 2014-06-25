@@ -1,0 +1,22 @@
+<html>
+  <head>
+    <title>Racefinder Ajax</title>
+  </head>
+  <body>
+    <h1>Racefinder Ajax</h1>
+    <div id='events'>
+    </div>
+    <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script>
+      $(document).ready(function(){
+       $.get('http://localhost:4567/', function(response){
+         $.each(response.events.event, function(index, value){
+           $('#events').append("<p>"+value['title']+": "+value['start_time']+"</p>");
+         });
+       });
+     });
+    </script>
+
+  </body>
+  <!-- http://api.eventful.com/json/events/search?app_key=NgGZZnXqGRMt9TmJ&keywords=books&location=San+Diego&date=Future --> 
+</html>
